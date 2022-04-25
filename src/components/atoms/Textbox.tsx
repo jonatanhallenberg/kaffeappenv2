@@ -4,10 +4,12 @@ interface TextboxProps {
     children?: React.ReactNode;
     isValid?: boolean;
     placeholder?: string;
+    fullWidth?: boolean;
 }
 
 interface StyledTextboxProps {
     isValid?: boolean;
+    fullWidth?: boolean;
 }
 
 const StyledTextbox = styled.input<StyledTextboxProps>`
@@ -19,10 +21,11 @@ const StyledTextbox = styled.input<StyledTextboxProps>`
     border-style: solid;
     border-color: ${props => props.isValid ? '#ADADAD' : '#E45454'};
     border-radius: 3px;
+    width: ${ props => props.fullWidth ? '100%' : 'auto'};
 `;
 
-const Textbox = ({ children, placeholder, isValid = true }: TextboxProps) => {
-    return <StyledTextbox type="text" isValid={isValid} placeholder={placeholder}></StyledTextbox>
+const Textbox = ({ children, placeholder, isValid = true, fullWidth = false }: TextboxProps) => {
+    return <StyledTextbox type="text" isValid={isValid} fullWidth={fullWidth} placeholder={placeholder}></StyledTextbox>
 }
 
 export default Textbox;

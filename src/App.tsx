@@ -30,6 +30,8 @@ const App = () => (
     <pre>{`<Textbox placeholder="användarnamn" />`}</pre>
     <Textbox isValid={false} />
     <pre>{`<Textbox isValid={false} />`}</pre>
+    <Textbox fullWidth={true} />
+    <pre>{`<Textbox fullWidth={true} />`}</pre>
     <h3>AlertList</h3>
     <AlertList variant="danger">
       <li>Användarnamnet är upptaget</li>
