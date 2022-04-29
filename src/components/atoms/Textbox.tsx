@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from 'react';
 import styled from 'styled-components';
 
 interface TextboxProps {
@@ -5,6 +6,7 @@ interface TextboxProps {
     isValid?: boolean;
     placeholder?: string;
     fullWidth?: boolean;
+    onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 interface StyledTextboxProps {
@@ -24,8 +26,8 @@ const StyledTextbox = styled.input<StyledTextboxProps>`
     width: ${ props => props.fullWidth ? '100%' : 'auto'};
 `;
 
-const Textbox = ({ children, placeholder, isValid = true, fullWidth = false }: TextboxProps) => {
-    return <StyledTextbox type="text" isValid={isValid} fullWidth={fullWidth} placeholder={placeholder}></StyledTextbox>
+const Textbox = ({ children, placeholder, isValid = true, fullWidth = false, onChange }: TextboxProps) => {
+    return <StyledTextbox onChange={onChange} type="text" isValid={isValid} fullWidth={fullWidth} placeholder={placeholder}></StyledTextbox>
 }
 
 export default Textbox;

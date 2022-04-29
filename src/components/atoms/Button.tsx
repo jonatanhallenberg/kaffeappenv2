@@ -1,8 +1,11 @@
+import { MouseEventHandler } from "react";
+
 interface ButtonType {
     children: React.ReactNode;
     variant?: 'primary' | 'secondary';
-    onClick?: () => void;
+    onClick?: MouseEventHandler<HTMLElement>
     fullWidth?: boolean;
+    type?: string
 }
 
 const BaseButtonStyle = {
@@ -22,7 +25,7 @@ const Button = ({ children, onClick, variant = "primary", fullWidth = false }: B
         width: fullWidth ? "100%" : "auto"
     };
 
-    return <button type="button" style={ButtonStyle} onClick={onClick}>{children}</button>
+    return <button style={ButtonStyle} onClick={(event) => console.log}>{children}</button>
 }
 
 export default Button;
